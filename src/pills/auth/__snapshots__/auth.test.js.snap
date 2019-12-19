@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth render Should pass a logout function 1`] = `"noop"`;
+
+exports[`Auth render Should render 1`] = `
+<form
+  className="ui large form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <div
+      className="ui fluid left icon input"
+    >
+      <input
+        autoFocus={true}
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        placeholder="Email"
+        type="text"
+        value=""
+      />
+      <i
+        aria-hidden="true"
+        className="user icon"
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <div
+      className="ui fluid left icon input"
+    >
+      <input
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        placeholder="Mot de passe"
+        type="password"
+        value=""
+      />
+      <i
+        aria-hidden="true"
+        className="lock icon"
+      />
+    </div>
+  </div>
+  <button
+    className="ui large fluid primary disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    S'identifier
+  </button>
+</form>
+`;
