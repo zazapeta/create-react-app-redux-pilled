@@ -104,7 +104,7 @@ A pill is a directory of (see \_template) :
 
 Multiple kind of tests :
 
-- unit : with jest | react-test-render
+- unit : with jest | https://testing-library.com/
   - component : should render
   - selectors : purity
   - reducers : purity
