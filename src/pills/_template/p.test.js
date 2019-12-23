@@ -21,7 +21,7 @@ it.skip('do nothing as the pills is not implented', () => {});
 //   let state;
 //   state = appReducer(
 //     { title: 'Hello' },
-//     { type: '@APP/INIT', payload: { title: 'Expateo - pa' } },
+//     { type: '@APP/INIT', payload: { title: 'Hellow world' } },
 //   );
-//   expect(state).toEqual({ title: 'Expateo - pa' });
+//   expect(state).toEqual({ title: 'Hellow world' });
 // });

@@ -22,7 +22,7 @@ Create-react app template (Redux, Redux-thunk, Reselect, Redux-logger, React Rou
 
 - React
 - React Router
-- Redux (redux-thunk, redux-actions, redux-logger, reselect, redux-orm)
+- Redux (redux-thunk, redux-actions, redux-logger, reselect, redux-orm, redux-form)
 - Bootstrap
 - Superagent
 - (xState ?)
