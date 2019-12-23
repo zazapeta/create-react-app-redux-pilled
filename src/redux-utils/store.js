@@ -11,8 +11,8 @@ const middlewares = [thunk.withExtraArgument({})];
 let composeEnhancers = compose;
 if (process.env.NODE_ENV !== 'production') {
   const { isFSA } = require('flux-standard-action');
-  const reduxImmutable = require('redux-immutable-state-invariant');
-  const logger = require('redux-logger');
+  const reduxImmutable = require('redux-immutable-state-invariant').default();
+  const logger = require('redux-logger').default;
   const fsaChecker = (store) => (next) => (action) => {
     if (isFSA(action)) {
       return next(action);
@@ -24,7 +24,8 @@ if (process.env.NODE_ENV !== 'production') {
     }
   };
   middlewares.push(fsaChecker);
-  middlewares.push(logger).push(reduxImmutable);
+  middlewares.push(reduxImmutable);
+  middlewares.push(logger);
   composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || composeEnhancers;
 }

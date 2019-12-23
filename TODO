@@ -2,5 +2,7 @@
  - Router (Suspens)
  - Fetch lib
  - Variable d'env (api) // https://create-react-app.dev/docs/advanced-configuration
- - Models/Schema reducer
+ - Models/Schema reducer + models.shape to validate proptypes + 
  - Readme
+ - i18n 
+ - Animated Layout

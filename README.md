@@ -22,11 +22,10 @@ Create-react app template (Redux, Redux-thunk, Reselect, Redux-logger, React Rou
 
 - React
 - React Router
-- Redux (redux-thunk, redux-form, redux-actions, redux-logger, reselect)
-- Recompose
-- Connected react router
-- React.SemanticUI
-- Axios
+- Redux (redux-thunk, redux-actions, redux-logger, reselect, redux-orm)
+- Bootstrap
+- Superagent
+- (xState ?)
 
 # File structure
 
@@ -126,7 +125,7 @@ wath's news : https://confluence.atlassian.com/bitbucket/what-s-new-in-bitbucket
 
 # The rules of the house
 
-- Let a clear todo statement when a work is not finish/complet (if test is missing, or inline style can be exctracted in module css).
+- Let a clear TODO statement when a work is not finish/complet (if test is missing, or inline style can be exctracted in module css).
 - When working is in progress start you commit with **[WIP] your awesome commit**
 - ON THE IMPORTANCE OF COMMIT MESSAGE: Your commit msg cannot be too long. Give a description of **WHY** (not what) (how, if its hard) have you do that.
 - When merging two branch, use the `-m` flag to add a commit
