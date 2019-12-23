@@ -1,9 +1,9 @@
  ☐ Dockerize it
- ✔ Router (Suspens) @done(19-12-23 10:49)
- ☐ Fetch lib
  ☐ Variable d'env (api) // https://create-react-app.dev/docs/advanced-configuration
- ✔ Models/Schema reducer + models.shape to validate proptypes + @done(19-12-23 10:49)
  ☐ Readme
- ☐ i18n 
  ☐ Animated Layout
  ☐ Ntlify deploy
+ ✔ Router (Suspens) @done(19-12-23 10:49)
+ ✔ Fetch lib @done(19-12-23 12:54)
+ ✔ Models/Schema reducer + models.shape to validate proptypes + @done(19-12-23 10:49)
+ ✔ i18n @done(19-12-23 12:54)

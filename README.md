@@ -4,11 +4,25 @@ Create-react app template (Redux, Redux-thunk, Reselect, Redux-logger, React Rou
 
 # Getting started
 
-> `git clone ...` > `npm i` > `npm run start`
+> `git clone ...`
+
+> `npm i`
+
+> `npm run start`
 
 # Running Tests
 
-> `npm run test` > `npm run test:watch` > `npm run test:coverage`
+> `npm run test`
+
+## CI Deployement
+
+> `npm run test:CI`
+
+## Debugging
+
+For vscode intégration
+
+> `npm run test:debug`
 
 # Development
 
@@ -24,25 +38,24 @@ Create-react app template (Redux, Redux-thunk, Reselect, Redux-logger, React Rou
 - React Router
 - Redux (redux-thunk, redux-actions, redux-logger, reselect, redux-orm, redux-form)
 - Bootstrap
-- Superagent
+- Axios
 - (xState ?)
 
 # File structure
 
 Based on | Pills | Pages | Models | directory where :
 
-- Pills are smart (business) component
-- Pages are 'navigational' ccomponent (they are used in the Router)
-- Models are 'api-data-wrapper' class
+- Pills are smart (business) component (aka connected component)
+- Pages are 'navigational' component (they are used in the Router)
+- Models are 'api-data-wrapper' class. Managed with redux-orm
+- Api is the directory containing all api services
 
 ## Definitions
 
-- elements : elements directory - An element is a really simple component (known as a atomic componant or atomic element of a design). At this moment we have semantic ui that define for us the big majority of elements.
-- hooks : React hooks directory
 - images : shared images directory
-- models : models directory - A model is a simple wrapper on the raw api data. They should stay simple as possible and read only as possible.
-- pages : page directory - A page is a component that will be used exclusively in the Router - _nowhere else and no other component in the router !_. Therefor, page are responsible of the navigations tought routes. A 'big' page may be splited into smaller component stored in a directory.
-- pills : pill directory - A pill is something handleing a part of the business -- see **Pill** section
+- models : models directory
+- pages : page directory - A page is a component that will be used **exclusively** in the Router - _nowhere else and no other component in the router !_. Therefore, pages are responsible of the navigations tought routes. A 'big' page may be splited into smaller component stored in child directory.
+- pills : pill directory - A pill is something handling a part of the business -- see **Pill** section
 - redux-form-utils: redux-form utlities directory
   - fieldComponents.jsx - Component used as _XXX_ in (redux-form)`<Field component={XXX}>`.
   - fieldValidators.js - Function used as _XXX YYY_ in (redux-form)`<Field validate={[XXX,YYY]}` - _all function here must be tested_
@@ -68,20 +81,13 @@ A pill is a directory of (see \_template) :
 - some `xxx.api.js` - where models are created/bound to api request/response - _no try catch there ! let error bubble up please_
 - some `xxx.container.jsx` smart (connected to redux) component - _handling business logic_
 - some `xxx.view.jsx` - dumb/stateless componants - _no logic there_
-- some `xxxForm` - componant using (redux-) forms - _group of .container + .view_
+- some `xxx.form` - componant using (redux-) forms - _group of .container + .view_
 - some `xxx.module.css` - css file used here (as a module)
-- some `xxx.selectors.js` - [**IMPORTANT**] They handle how to get data from the redux store - _must be pure functions, tested with a 100% coverage, composed with reselect, and for the sake, keep it simple (composition are the key here)_
+- some `xxx.selectors.js` - [**IMPORTANT**] They handle how to get data from the redux store - _must be pure functions, tested with a 100% coverage, composed with reselect, and for the sake, keep it simple (composition are the key here)_ - see official reselect doc
 - some `xxx.reducer.js` - [**IMPORTANT**] Redux reducer - see offcial redux doc
-- some `xxx.actions.js` - [**IMPORTANT**] Redux actions - see offcial redux doc
 - some `xxx.actions.js` - [**IMPORTANT**] Redux actions - see offcial redux doc
 - some `xxx.test.js` - [**IMPORTANT**] the test file associated to the pills
 - some `xxx.doc.md` - Used if the pills should be documented
-
-### Extra pills
-
-- api -- handle all the stuff about axios - endpoints ...
-- dataLoader -- fetch all the required data -- use it once, or to sync the store
-- schema -- is a generic connected componant to pass down the store and the dispatch function -- usefull into page componant
 
 # Workflow
 
@@ -98,13 +104,13 @@ A pill is a directory of (see \_template) :
 
 Multiple kind of tests :
 
-- unit : with jest | react-test-render | enzyme
+- unit : with jest | react-test-render
   - component : should render
-  - selectors
-  - reducers
-  - actions
-  - models
-  - api
+  - selectors : purity
+  - reducers : purity
+  - actions : purity
+  - models : fields presence
+  - api : mock
 - end to end : with cypress
 
 # Deployment
@@ -125,8 +131,8 @@ wath's news : https://confluence.atlassian.com/bitbucket/what-s-new-in-bitbucket
 
 # The rules of the house
 
-- Let a clear TODO statement when a work is not finish/complet (if test is missing, or inline style can be exctracted in module css).
-- When working is in progress start you commit with **[WIP] your awesome commit**
+- Let a clear TODO statement when a work is not finish/complet (if test is missing, or inline style can be exctracted in module css)
+- When work is in progress, you MUST start your commit with **[WIP] your awesome commit**
 - ON THE IMPORTANCE OF COMMIT MESSAGE: Your commit msg cannot be too long. Give a description of **WHY** (not what) (how, if its hard) have you do that.
 - When merging two branch, use the `-m` flag to add a commit
 - DAMN, every pure function should be unit tested !
@@ -154,7 +160,7 @@ Voici mon guide perso pour essayer d'augmenter ma qualité de code quand je fait
 - Est-ce que le code que j'ai écrit est D.R.Y ? Oui -> good. Non -> je le 'dry'.
 - Est-ce que le code que j'ai écrit est sans fautes d’orthographe ? Oui -> good. Non -> je les corriges.
 - Est-ce que le code que j'ai écrit est 'camelCase' ? Oui -> good. Non -> je les corriges.
-- Est-ce que le code que j'ai écrit me semble 'simple' ? Oui -> good. Non -> je documente ce que le code fait (Quoi? Comment? Pourquoi?).
+- Est-ce que le code que j'ai écrit me semble 'simple' ? Oui -> good. Non -> je documente ce que le code fait (Quoi? Comment? **Pourquoi?**).
 - Est-ce que mes dépendances sont 'isolés' ? Oui -> good. Non -> je les isoles
 - Est-ce que tout est bon ? Oui -> VERY GOOD !!. Non -> pourquoi ? Besoin d'un coup de pouce pour écrire un test ? Besoin d'une indication sur comment 'splitter' le code ? Besoin d'une relecture complète ? Super, créer une PR, push, et démarre une conversation :smiley: :smiley:
 
@@ -167,24 +173,42 @@ Fait attention à la casse : lower camel case tout le temps sauf pour :
 les class (composant React ou models) : upper camel case
 les constantes: screaming snake case
 On préfère les petites fonctions qui font une choses (peut-etre deux). Essaye de faire un maximum de fonction pure (http://lmgtfy.com/?s=d&q=wath+is+a+pure+function)
-Plus jamais de 'genericXXXXX', cela contredis le point précédent - Si tu veux faire du generic, je te propose de regarder les design pattern notamment le factory et le dependency inversion (http://lmgtfy.com/?s=d&q=dependency+inversion)
-Pas de var. D'une manière général, on évite le gobal scope.
+Design patterns à utiliser pour être S.O.L.I.D:
+
+- factory
+- facade
+- dependency inversion (http://lmgtfy.com/?s=d&q=dependency+inversion)
+
+Pas de var.
+D'une manière général, on évite le gobal scope.
 
 # Documentation
 
-... JSDOC ...
+JSDOC
 
 # PWA : Notification + Push Api + Service Worker
 
+TODO
+
 # Building badge
+
+TODO
 
 # i18N
 
+A 't' function is provided. You have to feed the 'texts' variable defined into the i18n.js
+
 # UX Data : GA
+
+TODO
 
 # How themes work
 
+TODO
+
 # Feature Toogle
+
+TODO
 
 # Classic Issues :
 
